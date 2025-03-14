@@ -3,7 +3,7 @@ function open_connection() {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "gestaosa";
+    $dbname = "";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
