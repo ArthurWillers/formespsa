@@ -5,25 +5,25 @@ $escola = $_POST['escola'] ?? $_GET['escola'] ?? null;
 // Defina qual arquivo será usado na ação do formulário
 switch ($modalidade) {
     case 'Atletismo':
-        $actionFile = 'cadastra_atletismo.php';
+        $actionFile = './cadastro/cadastra_atletismo.php';
         break;
     case 'Voleibol Misto':
-        $actionFile = 'cadastra_voleibol.php';
+        $actionFile = './cadastro/cadastra_voleibol.php';
         break;
     case 'Tênis de Mesa':
-        $actionFile = 'cadastra_tenis.php';
+        $actionFile = './cadastro/cadastra_tenis.php';
         break;
     case 'Xadrez':
-        $actionFile = 'cadastra_xadrez.php';
+        $actionFile = './cadastro/cadastra_xadrez.php';
         break;
     case 'Frisbee Misto':
-        $actionFile = 'cadastra_frisbee.php';
+        $actionFile = './cadastro/cadastra_frisbee.php';
         break;
     case 'Futsal':
-        $actionFile = 'cadastra_futsal.php';
+        $actionFile = './cadastro/cadastra_futsal.php';
         break;
     case 'Percurso Orientado':
-        $actionFile = 'cadastra_percurso.php';
+        $actionFile = './cadastro/cadastra_percurso.php';
         break;
     default:
         header('Location: index.php');
