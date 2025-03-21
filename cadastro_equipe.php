@@ -1,6 +1,8 @@
 <?php
-$modalidade = $_POST['modalidade'] ?? $_GET['modalidade'] ?? null;
-$escola = $_POST['escola'] ?? $_GET['escola'] ?? null;
+session_start();
+// Agora buscamos modalidade e escola diretamente da sessão
+$modalidade = $_SESSION['modalidade'] ?? $_POST['modalidade'] ?? null;
+$escola = $_SESSION['escola'] ?? $_POST['escola'] ?? null;
 
 // Defina qual arquivo será usado na ação do formulário
 switch ($modalidade) {
@@ -27,7 +29,7 @@ switch ($modalidade) {
         break;
     default:
         header('Location: index.php');
-        break;
+        exit;
 }
 ?>
 
@@ -58,9 +60,103 @@ switch ($modalidade) {
 
                     </div>
                 <?php elseif ($modalidade == 'Voleibol Misto'): ?>
-                    <div class="col-12 mb-3">
+                    <?php
+                        $currentTeam = $_SESSION['team'] ?? '1';
+                    ?>
+                    <?php if ($currentTeam === '1'): ?>
+                        <h4>Equipe Mista 1 - Voleibol Misto - Categoria B</h4>
+                        <label>Nome - Atleta 1:</label>
+                        <input type="text" name="vm1_atleta1" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 1:</label>
+                        <input type="date" name="vm1_nasc1" class="form-control mb-3">
 
-                    </div>
+                        <label>Nome - Atleta 2:</label>
+                        <input type="text" name="vm1_atleta2" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 2:</label>
+                        <input type="date" name="vm1_nasc2" class="form-control mb-3">
+
+                        <label>Nome - Atleta 3:</label>
+                        <input type="text" name="vm1_atleta3" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 3:</label>
+                        <input type="date" name="vm1_nasc3" class="form-control mb-3">
+
+                        <label>Nome - Atleta 4:</label>
+                        <input type="text" name="vm1_atleta4" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 4:</label>
+                        <input type="date" name="vm1_nasc4" class="form-control mb-3">
+
+                        <label>Nome - Atleta 5:</label>
+                        <input type="text" name="vm1_atleta5" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 5:</label>
+                        <input type="date" name="vm1_nasc5" class="form-control mb-3">
+
+                        <label>Nome - Atleta 6:</label>
+                        <input type="text" name="vm1_atleta6" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 6:</label>
+                        <input type="date" name="vm1_nasc6" class="form-control mb-3">
+
+                        <label>Nome - Atleta 7:</label>
+                        <input type="text" name="vm1_atleta7" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 7:</label>
+                        <input type="date" name="vm1_nasc7" class="form-control mb-3">
+
+                        <label>Nome - Atleta 8:</label>
+                        <input type="text" name="vm1_atleta8" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 8:</label>
+                        <input type="date" name="vm1_nasc8" class="form-control mb-3">
+                    <?php else: ?>
+                        <h4>Equipe Mista 2 - Voleibol Misto - Categoria B</h4>
+                        <label>Nome - Atleta 1:</label>
+                        <input type="text" name="vm2_atleta1" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 1:</label>
+                        <input type="date" name="vm2_nasc1" class="form-control mb-3">
+
+                        <label>Nome - Atleta 2:</label>
+                        <input type="text" name="vm2_atleta2" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 2:</label>
+                        <input type="date" name="vm2_nasc2" class="form-control mb-3">
+
+                        <label>Nome - Atleta 3:</label>
+                        <input type="text" name="vm2_atleta3" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 3:</label>
+                        <input type="date" name="vm2_nasc3" class="form-control mb-3">
+
+                        <label>Nome - Atleta 4:</label>
+                        <input type="text" name="vm2_atleta4" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 4:</label>
+                        <input type="date" name="vm2_nasc4" class="form-control mb-3">
+
+                        <label>Nome - Atleta 5:</label>
+                        <input type="text" name="vm2_atleta5" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 5:</label>
+                        <input type="date" name="vm2_nasc5" class="form-control mb-3">
+
+                        <label>Nome - Atleta 6:</label>
+                        <input type="text" name="vm2_atleta6" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 6:</label>
+                        <input type="date" name="vm2_nasc6" class="form-control mb-3">
+
+                        <label>Nome - Atleta 7:</label>
+                        <input type="text" name="vm2_atleta7" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 7:</label>
+                        <input type="date" name="vm2_nasc7" class="form-control mb-3">
+
+                        <label>Nome - Atleta 8:</label>
+                        <input type="text" name="vm2_atleta8" class="form-control mb-2">
+                        <label>Data de Nascimento - Atleta 8:</label>
+                        <input type="date" name="vm2_nasc8" class="form-control mb-3">
+                    <?php endif; ?>
+
+                    <!-- Mostra o select somente se estiver na equipe 1 -->
+                    <?php if ($currentTeam === '1'): ?>
+                        <div class="col-12 mb-3">
+                            <label for="cadastrarMais" class="form-label">Deseja cadastrar mais uma equipe?</label>
+                            <select id="cadastrarMais" name="cadastrarMais" class="form-select" required>
+                                <option value="Não">Não</option>
+                                <option value="Sim">Sim</option>
+                            </select>
+                        </div>
+                    <?php endif; ?>
                 <?php elseif ($modalidade == 'Tênis de Mesa'): ?>
                     <div class="col-12 mb-3">
 
@@ -83,13 +179,6 @@ switch ($modalidade) {
                     </div>
                 <?php endif; ?>
 
-                <div class="col-12 mb-3">
-                    <label for="cadastrarMais" class="form-label">Deseja cadastrar mais uma equipe?</label>
-                    <select id="cadastrarMais" name="cadastrarMais" class="form-select" required>
-                        <option value="Não">Não</option>
-                        <option value="Sim">Sim</option>
-                    </select>
-                </div>
                 <div class="col-12 mb-3">
                     <button type="submit" class="btn btn-success w-100 mb-2">Cadastrar Equipe</button>
                     <a href="index.php" class="btn btn-secondary w-100 mb-2">Voltar</a>
