@@ -49,7 +49,7 @@ switch ($_SESSION['modalidade']) {
     default:
         unset($_SESSION['escola']);
         unset($_SESSION['modalidade']);
-        $_SESSION['message'] = 'Escola inválida!';
+        $_SESSION['message'] = 'Modalidade inválida!';
         $_SESSION['message_type'] = 'error';
         header('Location: index.php');
         exit;
