@@ -36,8 +36,8 @@
         <div class="card shadow p-4 bg-white border-0">
             <form action="form_router.php" method="POST" class="row g-3">
                 <div class="col-12 mb-3">
-                    <label for="escola" class="form-label fw-bold">Escola</label>
-                    <select id="escola" name="escola" class="form-select" required>
+                    <label for="school" class="form-label fw-bold">Escola</label>
+                    <select id="school" name="school" class="form-select" required>
                         <option selected disabled>Selecione a escola</option>
                         <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
                         <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
@@ -50,8 +50,8 @@
                     </select>
                 </div>
                 <div class="col-12 mb-3">
-                    <label for="modalidade" class="form-label fw-bold">Modalidade</label>
-                    <select id="modalidade" name="modalidade" class="form-select" required>
+                    <label for="modality" class="form-label fw-bold">Modalidade</label>
+                    <select id="modality" name="modality" class="form-select" required>
                         <option selected disabled>Selecione a modalidade</option>
                         <option value="Atletismo">Atletismo</option>
                         <option value="Voleibol Misto">Voleibol Misto</option>

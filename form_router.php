@@ -12,19 +12,19 @@ $validSchools = [
     'EMEF Antônio Liberato'
 ];
 
-if (!in_array($_POST['escola'] ?? '', $validSchools)) {
-    unset($_SESSION['escola']);
-    unset($_SESSION['modalidade']);
+if (!in_array($_POST['school'] ?? '', $validSchools)) {
+    unset($_SESSION['school']);
+    unset($_SESSION['modality']);
     $_SESSION['message'] = 'Escola inválida!';
     $_SESSION['message_type'] = 'error';
     header('Location: index.php');
     exit;
 }
 
-$_SESSION['escola'] = $_POST['escola'];
-$_SESSION['modalidade'] = $_POST['modalidade'];
+$_SESSION['school'] = $_POST['school'];
+$_SESSION['modality'] = $_POST['modality'];
 
-switch ($_SESSION['modalidade']) {
+switch ($_SESSION['modality']) {
     case 'Atletismo':
         header('Location: ./forms/form_atletismo.php');
         exit;
@@ -47,8 +47,8 @@ switch ($_SESSION['modalidade']) {
         header('Location: ./forms/form_percurso.php');
         exit;
     default:
-        unset($_SESSION['escola']);
-        unset($_SESSION['modalidade']);
+        unset($_SESSION['school']);
+        unset($_SESSION['modality']);
         $_SESSION['message'] = 'Modalidade inválida!';
         $_SESSION['message_type'] = 'error';
         header('Location: index.php');
