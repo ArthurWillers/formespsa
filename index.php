@@ -12,6 +12,21 @@
 </head>
 
 <body class="bg-light">
+    <?php
+    session_start();
+    if (isset($_SESSION['message'])) {
+        $toastClass = isset($_SESSION['message_type']) && $_SESSION['message_type'] == 'success' ? 'text-bg-success' : 'text-bg-danger';
+        echo '<div class="toast-container top-0 start-50 translate-middle-x mt-2">
+              <div id="toastMessage" class="toast align-items-center ' . $toastClass . ' border-0 w-auto" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">' . $_SESSION['message'] . '</div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>';
+    session_destroy();
+    }
+    ?>
 
     <div class="container my-5" style="max-width: 600px;">
         <div class="text-center mb-4">
@@ -19,7 +34,7 @@
             <h1 class="h3">Formulário: Inscrição para o Festival de Esportes 2025</h1>
         </div>
         <div class="card shadow p-4 bg-white border-0">
-            <form action="cadastro_equipe.php" method="POST" class="row g-3">
+            <form action="form_router.php" method="POST" class="row g-3">
                 <div class="col-12 mb-3">
                     <label for="escola" class="form-label fw-bold">Escola</label>
                     <select id="escola" name="escola" class="form-select" required>
@@ -61,7 +76,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-    <script src="./scripts.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
