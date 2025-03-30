@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$modality = 'Tênis de Mesa';
-$school   = $_SESSION['school'] ?? '';
+$modality = $_SESSION['modality'];
+$school   = $_SESSION['school'];
 
 // Define a etapa inicial
 if (!isset($_SESSION['tenis_step'])) {
