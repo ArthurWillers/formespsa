@@ -107,7 +107,7 @@ if (isset($_POST['submitXadrez'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento - Atleta <?php echo $i; ?></label>
-              <input type="date" name="A_fem_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="A_fem_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
           <div class="col-12 text-center">
@@ -126,7 +126,7 @@ if (isset($_POST['submitXadrez'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento - Atleta <?php echo $i; ?></label>
-              <input type="date" name="A_mas_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="A_mas_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
           <div class="col-12 text-center">
@@ -145,7 +145,7 @@ if (isset($_POST['submitXadrez'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento - Atleta <?php echo $i; ?></label>
-              <input type="date" name="B_fem_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="B_fem_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
           <div class="col-12 text-center">
@@ -164,7 +164,7 @@ if (isset($_POST['submitXadrez'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento - Atleta <?php echo $i; ?></label>
-              <input type="date" name="B_mas_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="B_mas_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
           <div class="col-12 text-center">

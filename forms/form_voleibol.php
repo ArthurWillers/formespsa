@@ -97,7 +97,7 @@ if (isset($_POST['submitVoleibol'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento – Atleta <?php echo $i; ?></label>
-              <input type="date" name="team1_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="team1_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
 
@@ -130,7 +130,7 @@ if (isset($_POST['submitVoleibol'])) {
             </div>
             <div class="mb-3">
               <label>Data de Nascimento – Atleta <?php echo $i; ?></label>
-              <input type="date" name="team2_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+              <input type="date" name="team2_nasc_<?php echo $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
             </div>
           <?php endfor; ?>
           <div class="col-12 text-center">

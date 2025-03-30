@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (nameInput.value.trim() !== '') {
-                // Adiciona o atributo "required" se houver nome.
+                // Habilita o input de data e adiciona o atributo "required" se houver nome.
+                dateInput.disabled = false;
                 dateInput.setAttribute('required', 'required');
                 if (!dateInput.value) {
                     valid = false;
@@ -59,7 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             } else {
-                // Remove o atributo "required" se o nome estiver vazio.
+                // Desabilita o input de data se o nome estiver vazio.
+                dateInput.value = "";
+                dateInput.disabled = true;
                 dateInput.removeAttribute('required');
             }
         });

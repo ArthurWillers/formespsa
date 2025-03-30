@@ -164,7 +164,7 @@ function getAthleteCount($step)
           </div>
           <div class="mb-3">
             <label>Data de Nascimento - Atleta <?php echo $i; ?></label>
-            <input type="date" name="<?php echo $currentStep . '_nasc_' . $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>">
+            <input type="date" name="<?php echo $currentStep . '_nasc_' . $i; ?>" class="form-control athlete-date" data-index="<?php echo $i; ?>" disabled>
           </div>
         <?php endfor; ?>
         <div class="col-12 text-center">
