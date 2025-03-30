@@ -30,7 +30,7 @@ $school   = $_SESSION['school']   ?? 'Escola';
     </div>
   </nav>
 
-  <div class="container my-5" style="max-width: 700px;">
+  <div class="container my-5" style="max-width: 800px;">
     <div class="card shadow p-4 bg-white border-0">
       <h3 class="text-center mb-4">Confirmação de Cadastro</h3>
       <p class="text-center">
