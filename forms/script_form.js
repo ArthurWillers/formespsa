@@ -39,12 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nameInputs.forEach((nameInput, i) => {
             const dateInput = dateInputs[i];
+            // Remove mensagem de erro existente, se houver.
             const errorMsgEl = dateInput.nextElementSibling;
             if (errorMsgEl && errorMsgEl.classList.contains('age-error')) {
                 errorMsgEl.remove();
             }
 
             if (nameInput.value.trim() !== '') {
+                // Adiciona o atributo "required" se houver nome.
+                dateInput.setAttribute('required', 'required');
                 if (!dateInput.value) {
                     valid = false;
                     showError(dateInput, "Data de Nascimento é obrigatória.");
@@ -55,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         showError(dateInput, "O atleta está fora da idade estipulada pela categoria.");
                     }
                 }
+            } else {
+                // Remove o atributo "required" se o nome estiver vazio.
+                dateInput.removeAttribute('required');
             }
         });
 
