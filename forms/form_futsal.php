@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// Define a modalidade e a escola
-$modality = $_SESSION['modality'] ?? 'Modalidade';
-$school   = $_SESSION['school']   ?? 'Escola';
+$modality = $_SESSION['modality'];
+$school   = $_SESSION['school'];
 
-// Se ainda não existir, define o passo inicial como "A_feminino"
 if (!isset($_SESSION['futsal_step'])) {
   $_SESSION['futsal_step'] = 'A_feminino';
 }
@@ -64,7 +62,6 @@ if (isset($_POST['submitFutsal'])) {
       <span class="navbar-brand fw-bold">
         Festival de Esportes - <?php echo htmlspecialchars($modality); ?>
       </span>
-      <!-- Added buttons inside the navbar -->
       <div class="ms-3">
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmResetModal">
           Limpar Formulário
