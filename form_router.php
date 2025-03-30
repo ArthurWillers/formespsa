@@ -12,11 +12,22 @@ $validSchools = [
     'EMEF Antônio Liberato'
 ];
 
+if (isset($_GET['action']) && $_GET['action'] === 'back') {
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+
+if (isset($_GET['error']) && $_GET['error'] === 'missingCategory') {
+    session_reset();
+    $_SESSION['message'] = 'Um erro inesperado ocorreu!';
+    header('Location: index.php');
+    exit;
+}
+
 if (!in_array($_POST['school'] ?? '', $validSchools)) {
-    unset($_SESSION['school']);
-    unset($_SESSION['modality']);
+    session_reset();
     $_SESSION['message'] = 'Escola inválida!';
-    $_SESSION['message_type'] = 'error';
     header('Location: index.php');
     exit;
 }
@@ -47,10 +58,8 @@ switch ($_SESSION['modality']) {
         header('Location: ./forms/form_percurso.php');
         exit;
     default:
-        unset($_SESSION['school']);
-        unset($_SESSION['modality']);
+        session_reset();
         $_SESSION['message'] = 'Modalidade inválida!';
-        $_SESSION['message_type'] = 'error';
         header('Location: index.php');
         exit;
 }
