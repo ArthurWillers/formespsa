@@ -4,18 +4,16 @@ session_start();
 $modality = $_SESSION['modality'];
 $school   = $_SESSION['school'];
 
-// Define a etapa inicial
 if (!isset($_SESSION['tenis_step'])) {
     $_SESSION['tenis_step'] = 'A_feminino';
 }
 
 $currentStep = $_SESSION['tenis_step'];
 
-// Quando o formulário é enviado:
 if (isset($_POST['submitTenis'])) {
-    // Salvar no banco ou aplicar a lógica de cada etapa
     if ($currentStep === 'A_feminino') {
         // Salva Categoria A Feminino
+
         $_SESSION['tenis_step']  = 'A_masculino';
         $_SESSION['message']     = 'Dados da Categoria A Feminino salvos com sucesso! Agora, preencha a Categoria A Masculino.';
         $_SESSION['message_type'] = 'success';
@@ -23,6 +21,7 @@ if (isset($_POST['submitTenis'])) {
         exit;
     } elseif ($currentStep === 'A_masculino') {
         // Salva Categoria A Masculino
+
         $_SESSION['tenis_step']  = 'B_feminino';
         $_SESSION['message']     = 'Dados da Categoria A Masculino salvos com sucesso! Agora, preencha a Categoria B Feminino.';
         $_SESSION['message_type'] = 'success';
@@ -30,6 +29,7 @@ if (isset($_POST['submitTenis'])) {
         exit;
     } elseif ($currentStep === 'B_feminino') {
         // Salva Categoria B Feminino
+
         $_SESSION['tenis_step']  = 'B_masculino';
         $_SESSION['message']     = 'Dados da Categoria B Feminino salvos com sucesso! Agora, preencha a Categoria B Masculino.';
         $_SESSION['message_type'] = 'success';
@@ -37,6 +37,7 @@ if (isset($_POST['submitTenis'])) {
         exit;
     } elseif ($currentStep === 'B_masculino') {
         // Salva Categoria B Masculino
+
         header('Location: ../confirmation.php');
         exit;
     }

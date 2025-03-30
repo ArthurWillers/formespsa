@@ -4,18 +4,16 @@ session_start();
 $modality = $_SESSION['modality'];
 $school   = $_SESSION['school'] ?? '';
 
-// Definindo a etapa inicial
 if (!isset($_SESSION['xadrez_step'])) {
   $_SESSION['xadrez_step'] = 'A_feminino';
 }
 
 $currentStep = $_SESSION['xadrez_step'];
 
-// Quando o formulário é enviado:
 if (isset($_POST['submitXadrez'])) {
-  // Aqui você salvaria no banco ou faria a lógica de cada etapa
   if ($currentStep === 'A_feminino') {
     // Salva as atletas de Xadrez Categoria A Feminino
+
     $_SESSION['xadrez_step'] = 'A_masculino';
     $_SESSION['message']     = 'Dados da Categoria A Feminino salvos com sucesso! Agora, preencha a Categoria A Masculino.';
     $_SESSION['message_type'] = 'success';
@@ -23,6 +21,7 @@ if (isset($_POST['submitXadrez'])) {
     exit;
   } elseif ($currentStep === 'A_masculino') {
     // Salva os atletas de Xadrez Categoria A Masculino
+
     $_SESSION['xadrez_step'] = 'B_feminino';
     $_SESSION['message']     = 'Dados da Categoria A Masculino salvos com sucesso! Agora, preencha a Categoria B Feminino.';
     $_SESSION['message_type'] = 'success';
@@ -30,6 +29,7 @@ if (isset($_POST['submitXadrez'])) {
     exit;
   } elseif ($currentStep === 'B_feminino') {
     // Salva as atletas de Xadrez Categoria B Feminino
+
     $_SESSION['xadrez_step'] = 'B_masculino';
     $_SESSION['message']     = 'Dados da Categoria B Feminino salvos com sucesso! Agora, preencha a Categoria B Masculino.';
     $_SESSION['message_type'] = 'success';
@@ -37,6 +37,7 @@ if (isset($_POST['submitXadrez'])) {
     exit;
   } elseif ($currentStep === 'B_masculino') {
     // Salva os atletas de Xadrez Categoria B Masculino
+    
     header('Location: ../confirmation.php');
     exit;
   }

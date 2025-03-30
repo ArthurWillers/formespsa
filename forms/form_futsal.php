@@ -10,7 +10,6 @@ if (!isset($_SESSION['futsal_step'])) {
 
 $currentStep = $_SESSION['futsal_step'];
 
-// Quando o formulário é enviado:
 if (isset($_POST['submitFutsal'])) {
 
   if ($currentStep === 'A_feminino') {
