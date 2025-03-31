@@ -72,4 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nameInputs.forEach((el) => el.addEventListener('input', checkValidation));
     dateInputs.forEach((el) => el.addEventListener('change', checkValidation));
+
+    // Localiza o botão de reset no modal.
+    const resetButton = document.querySelector('#confirmResetModal button[type="reset"]');
+    if (resetButton) {
+        resetButton.addEventListener('click', () => {
+            dateInputs.forEach((dateInput) => {
+                const errorMsgEl = dateInput.nextElementSibling;
+                if (errorMsgEl && errorMsgEl.classList.contains('age-error')) {
+                    errorMsgEl.remove();
+                }
+                dateInput.disabled = true;
+                dateInput.removeAttribute('required');
+                dateInput.value = '';
+            });
+        });
+    }
 });
